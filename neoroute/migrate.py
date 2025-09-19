@@ -1,9 +1,9 @@
 import os, json, shutil, argparse
+from datetime import datetime
 from .db import init_db, get_session
 from .models import Cliente, Seguro, Apolice, Sinistro
-from .utils import parse_date_ddmmyyyy
+from .utils import parse_date_ddmmyyyy, validar_cpf
 from .logger import get_logger
-from datetime import datetime
 
 logger = get_logger()
 
@@ -34,7 +34,8 @@ def import_jsons(input_dir='dados'):
                 data = json.load(f)
             for c in data:
                 cpf = c.get('cpf')
-                if not cpf:
+                if not cpf or not validar_cpf(cpf):
+                    logger.warning(f"cliente ignorado por cpf inválido: {c}")
                     continue
                 if session.query(Cliente).filter(Cliente.cpf == cpf).first():
                     continue
@@ -53,10 +54,8 @@ def import_jsons(input_dir='dados'):
             with open(files['seguros'], encoding='utf-8') as f:
                 data = json.load(f)
             for s in data:
-                # Montar nome/descricao se não existirem no JSON
-                nome = s.get("nome") or (s.get("tipo", "desconhecido").capitalize())
+                nome = s.get("nome") or s.get("tipo", "desconhecido").capitalize()
                 descricao = s.get("descricao") or f"Seguro {s.get('tipo', 'genérico')} - valor {s.get('valor_base', 'não informado')}"
-                # Evitar duplicado
                 if session.query(Seguro).filter(Seguro.nome == nome).first():
                     continue
                 session.add(Seguro(nome=nome, descricao=descricao))
@@ -76,8 +75,7 @@ def import_jsons(input_dir='dados'):
                 cliente = session.query(Cliente).filter(Cliente.cpf == cpf).first()
                 if not cliente:
                     cliente = Cliente(nome=a.get('nome_cliente', 'desconhecido'), cpf=cpf)
-                    session.add(cliente)
-                    session.commit()
+                    session.add(cliente); session.commit()
                 seguro = session.query(Seguro).first()
                 data_em = parse_date_ddmmyyyy(a.get('data_emissao')) or datetime.utcnow()
                 data_v = parse_date_ddmmyyyy(a.get('data_vencimento'))
@@ -101,6 +99,7 @@ def import_jsons(input_dir='dados'):
                 num = s.get('numero_apolice') or s.get('apolice_numero')
                 ap = session.query(Apolice).filter(Apolice.numero == num).first()
                 if not ap:
+                    logger.warning(f"sinistro ignorado por apólice inexistente: {s}")
                     continue
                 data_ab = parse_date_ddmmyyyy(s.get('data_abertura') or s.get('data')) or datetime.utcnow()
                 data_fc = parse_date_ddmmyyyy(s.get('data_fechamento'))
@@ -115,7 +114,7 @@ def import_jsons(input_dir='dados'):
                 session.add(sin)
             session.commit()
 
-        logger.info('import ok')
+        logger.info('Importação concluída com sucesso.')
     except Exception as e:
         session.rollback()
         logger.error(f'import falhou: {e}')
@@ -129,6 +128,7 @@ def run(input_dir='dados'):
     print('Migração finalizada.')
 
 if __name__ == '__main__':
+    import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', default='dados')
     args = parser.parse_args()

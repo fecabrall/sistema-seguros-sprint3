@@ -1,11 +1,10 @@
-# Introdução
+# Sistema de Seguros NeoRoute CLI
 
-O projeto **NeoRoute CLI** é um sistema de gestão de seguros, desenvolvido durante a Sprint 3, com foco em **persistência robusta**, **auditoria**, **relatórios detalhados** e **experiência de uso em terminal (CLI)**.  
-O sistema utiliza **SQLite** para armazenamento e implementa logs de auditoria, validações reforçadas e fluxos amigáveis para administração de clientes, apólices e sinistros.
+Sistema de gestão de seguros desenvolvido em Python com interface de linha de comando (CLI), utilizando SQLite para persistência de dados, auditoria completa e experiência otimizada no terminal.
 
 ---
 
-# Autores
+## Autores
 
 - **AUGUSTO OLIVEIRA CODO DE SOUZA** — RM: 562080  
 - **FELIPE DE OLIVEIRA CABRAL** — RM: 561720  
@@ -15,148 +14,260 @@ O sistema utiliza **SQLite** para armazenamento e implementa logs de auditoria, 
 
 ---
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 sistema-seguros-sprint3/
-│
-├── data/
-│   └── seguros.db           # Banco de dados SQLite
-│
-├── scripts/
-│   └── relatorios.py        # Script de geração de relatórios
-│
-├── .venv/                   # Ambiente virtual Python
-├── README.md                # Este arquivo
-├── requirements.txt         # Bibliotecas Python necessárias
-├── exports/                 # Relatórios exportados
-├── logs/                    # Arquivos de logs
-├── backups/                 # Backups (CSV/JSON)
 ├── neoroute/                # Módulo principal do sistema
-├── tests/                   # Testes automatizados
-├── dados/                   # Dados da Sprint 2 (JSON)
-├── .env.example             # Exemplo de variáveis de ambiente
-└── alembicini/              # Scripts de migração do banco
+│   ├── __init__.py
+│   ├── __main__.py         # Ponto de entrada principal
+│   ├── cli.py              # Interface de linha de comando
+│   ├── models.py           # Modelos de dados SQLAlchemy
+│   ├── db.py               # Configuração do banco SQLite
+│   ├── auth.py             # Sistema de autenticação
+│   ├── audit.py            # Sistema de auditoria e logs
+│   ├── migrate.py          # Migração de dados JSON → SQLite
+│   ├── utils.py            # Validações e utilitários
+│   ├── exceptions.py       # Exceções customizadas
+│   └── logger.py           # Configuração de logs
+├── scripts/
+│   └── relatorios.py       # Geração de relatórios avançados
+├── data/
+│   ├── seguros.db          # Banco de dados SQLite principal
+│   └── initial_admin.txt   # Credenciais do administrador
+├── dados/                  # Dados iniciais em JSON (Sprint 2)
+│   ├── clientes.json
+│   ├── apolices.json
+│   ├── seguros.json
+│   └── sinistros.json
+├── logs/                   # Arquivos de log do sistema
+├── exports/                # Relatórios exportados (CSV/JSON)
+├── tests/                  # Testes automatizados
+├── requirements.txt        # Dependências Python
+└── .env.example           # Exemplo de variáveis de ambiente
 ```
 
 ---
 
-# Instalação e Configuração
+## Instalação e Configuração
 
-### 1. Criar e ativar o ambiente virtual
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/fecabrall/sistema-seguros-sprint3.git
+cd sistema-seguros-sprint3
+```
+
+### 2. Criar ambiente virtual
+```bash
 python -m venv .venv
-.venv\Scripts\Activate.ps1
+# Windows
+.venv\Scripts\activate
+# Linux/Mac
+source .venv/bin/activate
+```
 
-### 2. Instalar dependências
+### 3. Instalar dependências
+```bash
 pip install -r requirements.txt
+```
 
-### 3. Configurar variáveis de ambiente
+### 4. Configurar variáveis de ambiente (opcional)
+```bash
 cp .env.example .env
-# Ajuste conforme necessário.
+# Editar .env se necessário (padrão: SQLite local)
+```
 
-### 4. Criar usuário Admin
-python -m neoroute.create_admin
-# Exemplo de usuário criado:
-# username: admin
-# password: A124Nvu5uuQr1g
-
-### 5. Migração de Dados
-python -m neoroute.migrate --input dados
-# Cria tabelas: clientes, apolices, seguros, sinistros, users, audit_logs
-# Popula dados iniciais
-# Executar uma única vez
+### 5. Executar migração inicial (uma única vez)
+```bash
+python -m neoroute.migrate
+```
+*Este comando cria o schema SQLite e importa os dados JSON da Sprint 2*
 
 ---
 
-# Auditoria e Logs
+## Como Usar
 
-### Operações registradas
-- Criar/editar/cancelar apólices  
-- Abrir/fechar sinistros  
-- Alterações de cadastro  
+### Iniciar o Sistema
+```bash
+python -m neoroute
+```
 
-### Logs
-- Console  
-- Arquivo: logs/audit.log  
+**Credenciais de Acesso:**
+- **Usuário:** `admin`
+- **Senha:** `admin1234@`
 
-### Informações registradas
-- Data/hora  
-- Usuário ativo  
-- Operação realizada  
-- Tabela e IDs afetados  
+### Menu Principal
+Após o login, você terá acesso ao menu interativo:
 
----
-
-# Relatórios
-
-O script scripts/relatorios.py gera os seguintes relatórios:
-
-### 1. Sinistros abertos
-| ID  | Cliente        | Data Abertura | Status | Valor |
-| --- | -------------- | ------------- | ------ | ----- |
-| 3   | Ana Souza      | 2025-08-05    | Aberto | 5000  |
-| 1   | Maria Oliveira | 2025-06-10    | Aberto | 8000  |
-
-### 2. Valor total segurado por cliente
-| Cliente        | Valor Total |
-| -------------- | ----------- |
-| Maria Oliveira | 350         |
-| Ana Souza      | 250         |
-| João da Silva  | 200         |
-| Carlos Mendes  | 180         |
-| Felipe Cabral  | 150         |
-
-### 3. Sinistros por tipo de seguro
-| ID  | Cliente        | Tipo Seguro         | Descrição                                 | Valor |
-| --- | -------------- | ------------------ | ----------------------------------------- | ----- |
-| 1   | Maria Oliveira | Seguro de Automóvel | Acidente de carro envolvendo terceiros    | 8000  |
-| 2   | Felipe Cabral  | Seguro Residencial  | Incêndio parcial em residência            | 15000 |
-| 3   | Ana Souza      | Seguro Saúde        | Emergência médica em viagem internacional | 5000  |
-
-### 4. Faturamento de apólices por cliente
-| Cliente        | Total Apólices | Total Pago |
-| -------------- | -------------- | ---------- |
-| Maria Oliveira | 1              | 350        |
-| Ana Souza      | 1              | 250        |
-| João da Silva  | 1              | 200        |
-| Carlos Mendes  | 1              | 180        |
-| Felipe Cabral  | 1              | 150        |
-
-### 5. Sinistros por status
-| Status  | Total |
-| ------- | ----- |
-| Aberto  | 2     |
-| Fechado | 1     |
+- **(E)mitir** - Emitir nova apólice
+- **(R)egistrar Sinistro** - Registrar novo sinistro
+- **(C)ancelar** - Cancelar apólice existente
+- **(B)uscar** - Buscar por CPF, número de apólice ou nome
+- **(G)erar Relatório** - Gerar relatórios e estatísticas
+- **(Q)Sair** - Sair do sistema
 
 ---
 
-# Uso da CLI
+## Exemplos de Uso
 
-### Emissão de apólice
-python -m neoroute.cli emitir_apolice
+### 1. Emitir Nova Apólice
+```
+Menu: (E)mitir | (R)egistrar Sinistro | (C)ancelar | (B)uscar | (G)erar Relatório | (Q)Sair
+Escolha: e
 
-### Registro de sinistro
-python -m neoroute.cli registrar_sinistro
+Nome do cliente: João Silva
+CPF do cliente: 12345678901
+Número da apólice: AP001
+Prêmio: 1500.00
+Valor segurado: 50000.00
+Data emissão (dd/mm/YYYY): 15/09/2025
 
-### Atualização de cadastro
-python -m neoroute.cli atualizar_cliente
+✅ Apólice AP001 criada com sucesso.
+```
 
-### Geração de relatórios
-python scripts/relatorios.py
+### 2. Registrar Sinistro
+```
+Escolha: r
+
+Número da apólice: AP001
+Data abertura (dd/mm/YYYY): 20/09/2025
+Descrição: Colisão traseira no estacionamento
+Valor (0 se desconhecido): 5000.00
+
+✅ Sinistro registrado.
+```
+
+### 3. Buscar Informações
+```
+Escolha: b
+
+Buscar por CPF / número apólice / nome: João Silva
+
+┏━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━┓
+┃ Número  ┃ Cliente    ┃ CPF           ┃ Ativa ┃ Cancelada ┃
+┡━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━┩
+│ AP001   │ João Silva │ 12345678901   │ True  │ False     │
+└─────────┴────────────┴───────────────┴───────┴───────────┘
+```
+
+### 4. Gerar Relatório
+```
+Escolha: g
+
+Mês (1-12): 9
+Ano (YYYY): 2025
+
+Receita prevista (total atual): R$ 15.750,00
+```
 
 ---
 
-# Funcionalidades da CLI
-- Confirmações para ações destrutivas (ex.: cancelar apólice)  
-- Busca rápida por CPF, número de apólice ou nome  
+## Funcionalidades da Sprint 3
 
-# Regras de Validação
-- CPF válido (formato e dígito verificador)  
-- Datas coerentes (emissão < vencimento, abertura < fechamento)  
-- Não cancelar apólice já cancelada  
-- Não fechar sinistro inexistente  
+### 🗄️ Persistência com SQLite
+- Migração completa de JSON para SQLite
+- Camada de acesso a dados (CRUD) robusta
+- Rotina de migração automática dos dados da Sprint 2
+- Exportação de relatórios em CSV/JSON para backup
 
-# Perfis de Usuário
-- Admin: criar/editar/cancelar apólices e sinistros  
-- Comum: consultas e relatórios  
-- Usuário ativo registrado em todas as entradas de audit_logs
+### 📋 Auditoria e Logs
+- Registro de todas as operações sensíveis
+- Logs em arquivo (`logs/app.log`) e console
+- Metadados completos: data/hora, usuário, operação, IDs
+- Níveis de log: INFO, ERROR, WARNING
+
+### ⚠️ Tratamento de Erros
+- Exceções de negócio padronizadas
+- Mensagens amigáveis na CLI (sem stack trace)
+- Validações reforçadas: CPF, datas, regras de negócio
+- Prevenção de operações inválidas
+
+### 📊 Relatórios Avançados
+- **Receita mensal prevista** - Soma de prêmios de apólices ativas
+- **Top clientes por valor segurado** - Ranking de clientes
+- **Sinistros por status e período** - Análise temporal
+- **Exportação automática** para pasta `exports/`
+
+### 🖥️ Experiência no Terminal
+- Navegação direta com atalhos intuitivos
+- Confirmação explícita para ações destrutivas
+- Busca rápida por múltiplos critérios
+- Fluxos de uso otimizados e claros
+- Interface visual com tabelas formatadas
+
+### 🔐 Autenticação Robusta
+- Usuários persistidos em SQLite
+- Senhas criptografadas com bcrypt
+- Sistema de auditoria integrado
+- Sessão de usuário ativa em todas as operações
+
+---
+
+## Arquivos de Log e Exports
+
+### Logs do Sistema
+- **Localização:** `logs/app.log`
+- **Formato:** `[TIMESTAMP] [LEVEL] [USER] - MESSAGE`
+- **Rotação:** Automática por tamanho
+
+### Exports de Relatórios
+- **Localização:** `exports/`
+- **Formatos:** CSV, JSON
+- **Nomenclatura:** `relatorio_YYYYMMDD_HHMMSS.csv`
+
+### Banco de Dados
+- **Arquivo:** `data/seguros.db`
+- **Backup:** Automático antes de migrações
+- **Schema:** Criado automaticamente na primeira execução
+
+---
+
+## Executar Testes
+
+```bash
+# Todos os testes
+python -m pytest tests/ -v
+
+# Teste específico
+python -m pytest tests/test_smoke.py -v
+
+# Com cobertura
+python -m pytest tests/ --cov=neoroute --cov-report=html
+```
+
+---
+
+## Tecnologias Utilizadas
+
+- **Python 3.11+** - Linguagem principal
+- **SQLite** - Banco de dados embarcado
+- **SQLAlchemy** - ORM para mapeamento objeto-relacional
+- **Typer** - Framework para CLI moderna
+- **Rich** - Interface visual rica no terminal
+- **BCrypt** - Criptografia de senhas
+- **Pytest** - Framework de testes
+- **Alembic** - Sistema de migrações de banco
+
+---
+
+## Estrutura de Dados
+
+### Tabelas Principais
+- **users** - Usuários do sistema
+- **clientes** - Dados dos clientes
+- **seguros** - Tipos de seguro disponíveis
+- **apolices** - Apólices emitidas
+- **sinistros** - Sinistros registrados
+- **audit_logs** - Log de auditoria completo
+
+### Relacionamentos
+- Cliente → Apólices (1:N)
+- Apólice → Sinistros (1:N)
+- Seguro → Apólices (1:N)
+- User → AuditLogs (1:N)
+
+---
+
+## Contribuição
+
+Este projeto foi desenvolvido como parte da **Sprint 3** do curso de Análise e Desenvolvimento de Sistemas da FIAP, focando em persistência robusta, auditoria completa e experiência otimizada no terminal.
