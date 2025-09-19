@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "tipo": "automovel",
+        "valor_base": 40000.0,
+        "modelo": "Corolla",
+        "ano": "2006",
+        "placa": "DRK0304"
+    },
+    {
+        "id": 2,
+        "tipo": "residencial",
+        "valor_base": 500000.0,
+        "endereco": "Rua da Felicidade, 204"
+    },
+    {
+        "id": 3,
+        "tipo": "vida",
+        "valor_base": 1000000.0,
+        "beneficiarios": [
+            "Felipe",
+            "Sofia",
+            "Jonas"
+        ]
+    }
+]

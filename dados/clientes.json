@@ -1,0 +1,26 @@
+[
+    {
+        "nome": "Vinícius Adrian Siqueira",
+        "cpf": "50260903892",
+        "data_nasc": "02/11/2006",
+        "endereco": "Avenida Paulista, 1000",
+        "telefone": "(11)98795-1099",
+        "email": "vinicius.adrian@outlook.com"
+    },
+    {
+        "nome": "Marta Ferreira de Oliveira",
+        "cpf": "51711030031",
+        "data_nasc": "04/12/1987",
+        "endereco": "Rua da Felicidade, 204",
+        "telefone": "(15)93566-3546",
+        "email": "martafoliveira@gmail.com"
+    },
+    {
+        "nome": "Carlos Augusto de Matos",
+        "cpf": "83536509088",
+        "data_nasc": "07/06/1977",
+        "endereco": "Rua Costa da Castanheira, 149",
+        "telefone": "(11)94562-4257",
+        "email": "carlosagmatos@hotmail.com"
+    }
+]

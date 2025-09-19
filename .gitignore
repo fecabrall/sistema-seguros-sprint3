@@ -1,0 +1,6 @@
+__pycache__/
+.env
+data/seguros.db
+logs/
+backups/
+exports/

@@ -1,0 +1,23 @@
+[
+    {
+        "numero": "7457886",
+        "cpf_cliente": "50260903892",
+        "id_seguro": 1,
+        "data_emissao": "10/06/2025",
+        "ativa": true
+    },
+    {
+        "numero": "6094820",
+        "cpf_cliente": "51711030031",
+        "id_seguro": 2,
+        "data_emissao": "10/06/2025",
+        "ativa": true
+    },
+    {
+        "numero": "2699941",
+        "cpf_cliente": "83536509088",
+        "id_seguro": 3,
+        "data_emissao": "10/06/2025",
+        "ativa": true
+    }
+]

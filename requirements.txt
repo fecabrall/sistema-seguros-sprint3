@@ -1,0 +1,8 @@
+typer[all]
+rich
+SQLAlchemy
+alembic
+bcrypt
+python-dotenv
+pytest
+tabulate

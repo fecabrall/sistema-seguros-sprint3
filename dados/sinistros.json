@@ -1,0 +1,20 @@
+[
+    {
+        "numero_apolice": "7457886",
+        "data": "05/06/2025",
+        "descricao": "Carro foi roubado",
+        "status": "em análise"
+    },
+    {
+        "numero_apolice": "6094820",
+        "data": "09/05/2025",
+        "descricao": "A casa foi invadido e todos os bens de valor foram roubados",
+        "status": "aberto"
+    },
+    {
+        "numero_apolice": "2699941",
+        "data": "08/06/2025",
+        "descricao": "Carlos foi encontrado morto dentro de casa devido a um infarto",
+        "status": "aberto"
+    }
+]
