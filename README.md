@@ -17,6 +17,7 @@ O sistema utiliza **SQLite** para armazenamento e implementa logs de auditoria, 
 
 # Estrutura do Projeto
 
+```
 sistema-seguros-sprint3/
 │
 ├── data/
@@ -28,7 +29,15 @@ sistema-seguros-sprint3/
 ├── .venv/                   # Ambiente virtual Python
 ├── README.md                # Este arquivo
 ├── requirements.txt         # Bibliotecas Python necessárias
-└── ...
+├── exports/                 # Relatórios exportados
+├── logs/                    # Arquivos de logs
+├── backups/                 # Backups (CSV/JSON)
+├── neoroute/                # Módulo principal do sistema
+├── tests/                   # Testes automatizados
+├── dados/                   # Dados da Sprint 2 (JSON)
+├── .env.example             # Exemplo de variáveis de ambiente
+└── alembicini/              # Scripts de migração do banco
+
 
 ---
 
