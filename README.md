@@ -37,7 +37,7 @@ sistema-seguros-sprint3/
 ├── dados/                   # Dados da Sprint 2 (JSON)
 ├── .env.example             # Exemplo de variáveis de ambiente
 └── alembicini/              # Scripts de migração do banco
-
+```
 
 ---
 
