@@ -5,16 +5,15 @@ from pathlib import Path
 from .logger import get_logger
 logger = get_logger()
 
-def run(username='admin', email='admin@neoseguros.com'):
+def run(username='admin', email='admin@neoseguros.com', password='admin1234@'):
     init_db()
-    pw = secrets.token_urlsafe(10)
     try:
-        u = create_user(username, pw, email=email, role='admin')
+        u = create_user(username, password, email=email, role='admin')
         p = Path('data') / 'initial_admin.txt'; p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(f"username={username}\npassword={pw}\nemail={email}\n")
+        p.write_text(f"username={username}\npassword={password}\nemail={email}\n")
         print('ADMIN CRIADO:')
         print('username:', username)
-        print('password:', pw)
+        print('password:', password)
         logger.info(f'admin criado: {username}')
     except Exception as e:
         logger.error(f'erro criar admin: {e}')

@@ -1,11 +1,10 @@
-# Introdução
+# Sistema de Seguros NeoRoute CLI
 
-O projeto **NeoRoute CLI** é um sistema de gestão de seguros, desenvolvido durante a Sprint 3, com foco em **persistência robusta**, **auditoria**, **relatórios detalhados** e **experiência de uso em terminal (CLI)**.  
-O sistema utiliza **SQLite** para armazenamento e implementa logs de auditoria, validações reforçadas e fluxos amigáveis para administração de clientes, apólices e sinistros.
+Sistema de gestão de seguros desenvolvido em Python com interface de linha de comando (CLI), utilizando SQLite para persistência de dados, auditoria completa e experiência otimizada no terminal.
 
 ---
 
-# Autores
+## Autores
 
 - **AUGUSTO OLIVEIRA CODO DE SOUZA** — RM: 562080  
 - **FELIPE DE OLIVEIRA CABRAL** — RM: 561720  
@@ -15,42 +14,56 @@ O sistema utiliza **SQLite** para armazenamento e implementa logs de auditoria, 
 
 ---
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 sistema-seguros-sprint3/
-│
-├── data/
-│   └── seguros.db           # Banco de dados SQLite
-│
-├── scripts/
-│   └── relatorios.py        # Script de geração de relatórios
-│
-├── .venv/                   # Ambiente virtual Python
-├── README.md                # Este arquivo
-├── requirements.txt         # Bibliotecas Python necessárias
-├── exports/                 # Relatórios exportados
-├── logs/                    # Arquivos de logs
-├── backups/                 # Backups (CSV/JSON)
 ├── neoroute/                # Módulo principal do sistema
+├── scripts/                 # Scripts auxiliares
+│   └── relatorios.py        # Relatórios completos (export CSV/JSON)
+├── data/                    # Dados persistidos
+│   ├── seguros.db           # Banco de dados SQLite
+│   └── initial_admin.txt    # Últimas credenciais geradas do admin
+├── dados/                   # Dados da Sprint 2 (JSON) para migração one-shot
+│   ├── clientes.json
+│   ├── apolices.json
+│   ├── seguros.json
+│   └── sinistros.json
+├── exports/                 # Relatórios exportados (CSV/JSON)
+├── logs/                    # Arquivos de logs (app.log)
+├── backups/                 # Backups automáticos do banco
 ├── tests/                   # Testes automatizados
-├── dados/                   # Dados da Sprint 2 (JSON)
+├── requirements.txt         # Dependências Python
 ├── .env.example             # Exemplo de variáveis de ambiente
 └── alembic.ini              # Configuração (opcional) do Alembic
 ```
 
 ---
 
-# Instalação e Configuração
+## Instalação e Configuração
 
-### 1. Criar e ativar o ambiente virtual
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/fecabrall/sistema-seguros-sprint3.git
+cd sistema-seguros-sprint3
+```
+
+### 2. Criar ambiente virtual
+```bash
 python -m venv .venv
-.venv\Scripts\Activate.ps1
+# Windows
+.venv\Scripts\activate
+# Linux/Mac
+source .venv/bin/activate
+```
 
-### 2. Instalar dependências
+### 3. Instalar dependências
+```bash
 pip install -r requirements.txt
+```
 
-### 3. Configurar variáveis de ambiente
+### 4. Configurar variáveis de ambiente (opcional)
+```bash
 cp .env.example .env
 # Ajuste conforme necessário.
 
@@ -99,9 +112,52 @@ python -m neoroute.migrate --input dados
 
 ---
 
+# Relatórios
+
+O script scripts/relatorios.py gera os seguintes relatórios:
+
+### 1. Sinistros abertos
+| ID  | Cliente        | Data Abertura | Status | Valor |
+| --- | -------------- | ------------- | ------ | ----- |
+| 3   | Ana Souza      | 2025-08-05    | Aberto | 5000  |
+| 1   | Maria Oliveira | 2025-06-10    | Aberto | 8000  |
+
+### 2. Valor total segurado por cliente
+| Cliente        | Valor Total |
+| -------------- | ----------- |
+| Maria Oliveira | 350         |
+| Ana Souza      | 250         |
+| João da Silva  | 200         |
+| Carlos Mendes  | 180         |
+| Felipe Cabral  | 150         |
+
+### 3. Sinistros por tipo de seguro
+| ID  | Cliente        | Tipo Seguro         | Descrição                                 | Valor |
+| --- | -------------- | ------------------ | ----------------------------------------- | ----- |
+| 1   | Maria Oliveira | Seguro de Automóvel | Acidente de carro envolvendo terceiros    | 8000  |
+| 2   | Felipe Cabral  | Seguro Residencial  | Incêndio parcial em residência            | 15000 |
+| 3   | Ana Souza      | Seguro Saúde        | Emergência médica em viagem internacional | 5000  |
+
+### 4. Faturamento de apólices por cliente
+| Cliente        | Total Apólices | Total Pago |
+| -------------- | -------------- | ---------- |
+| Maria Oliveira | 1              | 350        |
+| Ana Souza      | 1              | 250        |
+| João da Silva  | 1              | 200        |
+| Carlos Mendes  | 1              | 180        |
+| Felipe Cabral  | 1              | 150        |
+
+### 5. Sinistros por status
+| Status  | Total |
+| ------- | ----- |
+| Aberto  | 2     |
+| Fechado | 1     |
+
+---
+
 # Uso da CLI
 
-Você pode rodar a CLI de forma interativa e usar atalhos. Comandos:
+Você pode rodar a CLI de forma interativa e usar atalhos.
 
 1) Iniciar a CLI interativa
 
@@ -122,34 +178,10 @@ python -m neoroute.cli run
 - (G) Gerar relatórios rápidos (no terminal)
 - (Q) Sair
 
-3) Exemplos práticos
-
-- Emissão de apólice (E)
-  - Informe nome e CPF do cliente
-  - Número da apólice, prêmio, valor segurado
-  - Datas de emissão e vencimento (dd/mm/YYYY)
-
-- Registro de sinistro (R)
-  - Informe o número da apólice
-  - Data de abertura, descrição e valor
-
-- Fechar sinistro (F)
-  - Informe o ID do sinistro
-  - Data de fechamento (dd/mm/YYYY)
-
-- Atualizar cliente (U)
-  - Informe o CPF e os campos a atualizar (deixe em branco para manter)
-
-4) Relatórios completos (com exportação CSV/JSON):
+3) Relatórios completos (com exportação CSV/JSON):
 
 ```bash
 python scripts/relatorios.py
-```
-
-5) Executar testes automatizados
-
-```bash
-python -m pytest tests/ -v
 ```
 
 ---
@@ -162,10 +194,7 @@ python -m pytest tests/ -v
 - CPF válido (formato e dígito verificador)  
 - Datas coerentes (emissão < vencimento, abertura < fechamento)  
 - Não cancelar apólice já cancelada  
-- Não fechar sinistro inexistente
-- Exceções padronizadas para erros de negócio
-- Validação de datas futuras
-- Verificação de apólices duplicadas  
+- Não fechar sinistro inexistente  
 
 # Perfis de Usuário
 - Admin: criar/editar/cancelar apólices e sinistros  

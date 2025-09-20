@@ -13,6 +13,14 @@ def get_logger(name='neoroute'):
     if not logger.handlers:
         logger.setLevel(getattr(logging, LOG_LEVEL, logging.INFO))
         fmt = logging.Formatter('%(asctime)s %(levelname)s [%(name)s] %(message)s')
-        ch = logging.StreamHandler(); ch.setFormatter(fmt); logger.addHandler(ch)
-        fh = RotatingFileHandler(LOG_FILE, maxBytes=10_000_000, backupCount=5, encoding='utf-8'); fh.setFormatter(fmt); logger.addHandler(fh)
+
+        # Console
+        ch = logging.StreamHandler()
+        ch.setFormatter(fmt)
+        logger.addHandler(ch)
+
+        # RotatingFileHandler: max 10MB, 5 backups
+        fh = RotatingFileHandler(LOG_FILE, maxBytes=10_000_000, backupCount=5, encoding='utf-8')
+        fh.setFormatter(fmt)
+        logger.addHandler(fh)
     return logger
