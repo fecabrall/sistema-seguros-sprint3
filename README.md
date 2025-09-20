@@ -112,49 +112,6 @@ python -m neoroute.migrate --input dados
 
 ---
 
-# Relatórios
-
-O script scripts/relatorios.py gera os seguintes relatórios:
-
-### 1. Sinistros abertos
-| ID  | Cliente        | Data Abertura | Status | Valor |
-| --- | -------------- | ------------- | ------ | ----- |
-| 3   | Ana Souza      | 2025-08-05    | Aberto | 5000  |
-| 1   | Maria Oliveira | 2025-06-10    | Aberto | 8000  |
-
-### 2. Valor total segurado por cliente
-| Cliente        | Valor Total |
-| -------------- | ----------- |
-| Maria Oliveira | 350         |
-| Ana Souza      | 250         |
-| João da Silva  | 200         |
-| Carlos Mendes  | 180         |
-| Felipe Cabral  | 150         |
-
-### 3. Sinistros por tipo de seguro
-| ID  | Cliente        | Tipo Seguro         | Descrição                                 | Valor |
-| --- | -------------- | ------------------ | ----------------------------------------- | ----- |
-| 1   | Maria Oliveira | Seguro de Automóvel | Acidente de carro envolvendo terceiros    | 8000  |
-| 2   | Felipe Cabral  | Seguro Residencial  | Incêndio parcial em residência            | 15000 |
-| 3   | Ana Souza      | Seguro Saúde        | Emergência médica em viagem internacional | 5000  |
-
-### 4. Faturamento de apólices por cliente
-| Cliente        | Total Apólices | Total Pago |
-| -------------- | -------------- | ---------- |
-| Maria Oliveira | 1              | 350        |
-| Ana Souza      | 1              | 250        |
-| João da Silva  | 1              | 200        |
-| Carlos Mendes  | 1              | 180        |
-| Felipe Cabral  | 1              | 150        |
-
-### 5. Sinistros por status
-| Status  | Total |
-| ------- | ----- |
-| Aberto  | 2     |
-| Fechado | 1     |
-
----
-
 # Uso da CLI
 
 Você pode rodar a CLI de forma interativa e usar atalhos.
