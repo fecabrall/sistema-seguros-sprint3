@@ -36,7 +36,7 @@ sistema-seguros-sprint3/
 ├── tests/                   # Testes automatizados
 ├── dados/                   # Dados da Sprint 2 (JSON)
 ├── .env.example             # Exemplo de variáveis de ambiente
-└── alembicini/              # Scripts de migração do banco
+└── alembic.ini              # Configuração (opcional) do Alembic
 ```
 
 ---
@@ -54,11 +54,24 @@ pip install -r requirements.txt
 cp .env.example .env
 # Ajuste conforme necessário.
 
-### 4. Criar usuário Admin
+### 4. Criar usuário Admin (via CLI – recomendado)
+Crie o usuário admin (idempotente). Use `--force` para resetar a senha se já existir:
+
+```bash
+python -m neoroute.cli create-admin --username admin --email admin@neoseguros.com
+# Para resetar a senha do admin existente:
+python -m neoroute.cli create-admin --username admin --force
+```
+
+As credenciais geradas são salvas em `data/initial_admin.txt`.
+
+Alternativa (legado):
+```bash
 python -m neoroute.create_admin
 # Exemplo de usuário criado:
 # username: admin
-# password: A124Nvu5uuQr1g
+# password: (gerada automaticamente)
+```
 
 ### 5. Migração de Dados
 python -m neoroute.migrate --input dados
@@ -77,72 +90,67 @@ python -m neoroute.migrate --input dados
 
 ### Logs
 - Console  
-- Arquivo: logs/audit.log  
+- Arquivo: logs/app.log  
 
 ### Informações registradas
 - Data/hora  
 - Usuário ativo  
 - Operação realizada  
-- Tabela e IDs afetados  
-
----
-
-# Relatórios
-
-O script scripts/relatorios.py gera os seguintes relatórios:
-
-### 1. Sinistros abertos
-| ID  | Cliente        | Data Abertura | Status | Valor |
-| --- | -------------- | ------------- | ------ | ----- |
-| 3   | Ana Souza      | 2025-08-05    | Aberto | 5000  |
-| 1   | Maria Oliveira | 2025-06-10    | Aberto | 8000  |
-
-### 2. Valor total segurado por cliente
-| Cliente        | Valor Total |
-| -------------- | ----------- |
-| Maria Oliveira | 350         |
-| Ana Souza      | 250         |
-| João da Silva  | 200         |
-| Carlos Mendes  | 180         |
-| Felipe Cabral  | 150         |
-
-### 3. Sinistros por tipo de seguro
-| ID  | Cliente        | Tipo Seguro         | Descrição                                 | Valor |
-| --- | -------------- | ------------------ | ----------------------------------------- | ----- |
-| 1   | Maria Oliveira | Seguro de Automóvel | Acidente de carro envolvendo terceiros    | 8000  |
-| 2   | Felipe Cabral  | Seguro Residencial  | Incêndio parcial em residência            | 15000 |
-| 3   | Ana Souza      | Seguro Saúde        | Emergência médica em viagem internacional | 5000  |
-
-### 4. Faturamento de apólices por cliente
-| Cliente        | Total Apólices | Total Pago |
-| -------------- | -------------- | ---------- |
-| Maria Oliveira | 1              | 350        |
-| Ana Souza      | 1              | 250        |
-| João da Silva  | 1              | 200        |
-| Carlos Mendes  | 1              | 180        |
-| Felipe Cabral  | 1              | 150        |
-
-### 5. Sinistros por status
-| Status  | Total |
-| ------- | ----- |
-| Aberto  | 2     |
-| Fechado | 1     |
 
 ---
 
 # Uso da CLI
 
-### Emissão de apólice
-python -m neoroute.cli emitir_apolice
+Você pode rodar a CLI de forma interativa e usar atalhos. Comandos:
 
-### Registro de sinistro
-python -m neoroute.cli registrar_sinistro
+1) Iniciar a CLI interativa
 
-### Atualização de cadastro
-python -m neoroute.cli atualizar_cliente
+```bash
+python -m neoroute
+# ou
+python -m neoroute.cli run
+```
 
-### Geração de relatórios
+2) Fluxos disponíveis no menu (atalhos entre parênteses):
+
+- (E) Emitir apólice
+- (R) Registrar sinistro
+- (F) Fechar sinistro
+- (U) Atualizar cliente
+- (C) Cancelar apólice
+- (B) Buscar (por CPF, número de apólice ou nome)
+- (G) Gerar relatórios rápidos (no terminal)
+- (Q) Sair
+
+3) Exemplos práticos
+
+- Emissão de apólice (E)
+  - Informe nome e CPF do cliente
+  - Número da apólice, prêmio, valor segurado
+  - Datas de emissão e vencimento (dd/mm/YYYY)
+
+- Registro de sinistro (R)
+  - Informe o número da apólice
+  - Data de abertura, descrição e valor
+
+- Fechar sinistro (F)
+  - Informe o ID do sinistro
+  - Data de fechamento (dd/mm/YYYY)
+
+- Atualizar cliente (U)
+  - Informe o CPF e os campos a atualizar (deixe em branco para manter)
+
+4) Relatórios completos (com exportação CSV/JSON):
+
+```bash
 python scripts/relatorios.py
+```
+
+5) Executar testes automatizados
+
+```bash
+python -m pytest tests/ -v
+```
 
 ---
 
@@ -154,7 +162,10 @@ python scripts/relatorios.py
 - CPF válido (formato e dígito verificador)  
 - Datas coerentes (emissão < vencimento, abertura < fechamento)  
 - Não cancelar apólice já cancelada  
-- Não fechar sinistro inexistente  
+- Não fechar sinistro inexistente
+- Exceções padronizadas para erros de negócio
+- Validação de datas futuras
+- Verificação de apólices duplicadas  
 
 # Perfis de Usuário
 - Admin: criar/editar/cancelar apólices e sinistros  
