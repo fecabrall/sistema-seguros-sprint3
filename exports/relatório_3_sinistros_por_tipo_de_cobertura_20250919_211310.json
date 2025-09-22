@@ -1,0 +1,42 @@
+{
+  "titulo": "RELATÓRIO 3: Sinistros por tipo de cobertura",
+  "data_geracao": "2025-09-19T21:13:10.117368",
+  "total_registros": 5,
+  "dados": [
+    {
+      "ID": 1,
+      "Cliente": "Vinícius Adrian Siqueira",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Carro foi roubado",
+      "Valor": null
+    },
+    {
+      "ID": 2,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "A casa foi invadido e todos os bens de valor foram roubados",
+      "Valor": null
+    },
+    {
+      "ID": 3,
+      "Cliente": "Carlos Augusto de Matos",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Carlos foi encontrado morto dentro de casa devido a um infarto",
+      "Valor": null
+    },
+    {
+      "ID": 4,
+      "Cliente": "Nolfindo",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Descrição teste",
+      "Valor": 0.0
+    },
+    {
+      "ID": 5,
+      "Cliente": "Tereza",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Teste de fechamento",
+      "Valor": 0.0
+    }
+  ]
+}

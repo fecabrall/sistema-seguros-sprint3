@@ -1,0 +1,57 @@
+{
+  "titulo": "RELATÓRIO 4: Faturamento de apólices por cliente",
+  "data_geracao": "2025-09-22T08:42:27.198448",
+  "total_registros": 10,
+  "dados": [
+    {
+      "Cliente": "André",
+      "Total Apólices": 1,
+      "Total Pago": 745000.0
+    },
+    {
+      "Cliente": "Rosangela",
+      "Total Apólices": 1,
+      "Total Pago": 100000.0
+    },
+    {
+      "Cliente": "Tereza",
+      "Total Apólices": 1,
+      "Total Pago": 98765.0
+    },
+    {
+      "Cliente": "Nolfindo",
+      "Total Apólices": 1,
+      "Total Pago": 10000.0
+    },
+    {
+      "Cliente": "Alessandra ",
+      "Total Apólices": 1,
+      "Total Pago": 5230.0
+    },
+    {
+      "Cliente": "André Godoi",
+      "Total Apólices": 1,
+      "Total Pago": 2500.0
+    },
+    {
+      "Cliente": "Vinícius Adrian Siqueira",
+      "Total Apólices": 1,
+      "Total Pago": 0.0
+    },
+    {
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Total Apólices": 1,
+      "Total Pago": 0.0
+    },
+    {
+      "Cliente": "Leonardo ",
+      "Total Apólices": 1,
+      "Total Pago": 0.0
+    },
+    {
+      "Cliente": "Carlos Augusto de Matos",
+      "Total Apólices": 1,
+      "Total Pago": 0.0
+    }
+  ]
+}

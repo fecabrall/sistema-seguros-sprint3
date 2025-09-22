@@ -1,0 +1,19 @@
+{
+  "titulo": "RELATÓRIO 5: Sinistros por status",
+  "data_geracao": "2025-09-22T08:42:27.199575",
+  "total_registros": 3,
+  "dados": [
+    {
+      "Status": "aberto",
+      "Total": 11
+    },
+    {
+      "Status": "em análise",
+      "Total": 4
+    },
+    {
+      "Status": "fechado",
+      "Total": 3
+    }
+  ]
+}

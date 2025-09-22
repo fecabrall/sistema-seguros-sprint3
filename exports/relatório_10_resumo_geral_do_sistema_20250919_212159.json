@@ -1,0 +1,23 @@
+{
+  "titulo": "RELATÓRIO 10: Resumo geral do sistema",
+  "data_geracao": "2025-09-19T21:21:59.902513",
+  "total_registros": 4,
+  "dados": [
+    {
+      "Categoria": "Clientes",
+      "Total": 8
+    },
+    {
+      "Categoria": "Apólices Ativas",
+      "Total": 6
+    },
+    {
+      "Categoria": "Sinistros Abertos",
+      "Total": 4
+    },
+    {
+      "Categoria": "Receita Total Prevista",
+      "Total": 108765.0
+    }
+  ]
+}

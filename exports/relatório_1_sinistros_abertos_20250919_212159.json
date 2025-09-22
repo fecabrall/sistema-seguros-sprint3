@@ -1,0 +1,35 @@
+{
+  "titulo": "RELATÓRIO 1: Sinistros abertos",
+  "data_geracao": "2025-09-19T21:21:59.871968",
+  "total_registros": 4,
+  "dados": [
+    {
+      "ID": 4,
+      "Cliente": "Nolfindo",
+      "Data Abertura": "2025-09-19 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": 0.0
+    },
+    {
+      "ID": 6,
+      "Cliente": "Rosangela",
+      "Data Abertura": "2025-09-06 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": 0.0
+    },
+    {
+      "ID": 3,
+      "Cliente": "Carlos Augusto de Matos",
+      "Data Abertura": "2025-06-08 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 2,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Data Abertura": "2025-05-09 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    }
+  ]
+}

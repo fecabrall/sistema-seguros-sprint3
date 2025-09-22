@@ -1,0 +1,84 @@
+{
+  "titulo": "RELATÓRIO 1: Sinistros abertos",
+  "data_geracao": "2025-09-22T08:42:27.193896",
+  "total_registros": 11,
+  "dados": [
+    {
+      "ID": 18,
+      "Cliente": "André Godoi",
+      "Data Abertura": "2025-09-22 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": 500.0
+    },
+    {
+      "ID": 4,
+      "Cliente": "Nolfindo",
+      "Data Abertura": "2025-09-19 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": 0.0
+    },
+    {
+      "ID": 6,
+      "Cliente": "Rosangela",
+      "Data Abertura": "2025-09-06 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": 0.0
+    },
+    {
+      "ID": 3,
+      "Cliente": "Carlos Augusto de Matos",
+      "Data Abertura": "2025-06-08 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 10,
+      "Cliente": "Carlos Augusto de Matos",
+      "Data Abertura": "2025-06-08 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 14,
+      "Cliente": "Carlos Augusto de Matos",
+      "Data Abertura": "2025-06-08 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 17,
+      "Cliente": "Carlos Augusto de Matos",
+      "Data Abertura": "2025-06-08 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 2,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Data Abertura": "2025-05-09 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 9,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Data Abertura": "2025-05-09 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 13,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Data Abertura": "2025-05-09 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    },
+    {
+      "ID": 16,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Data Abertura": "2025-05-09 00:00:00.000000",
+      "Status": "aberto",
+      "Valor": null
+    }
+  ]
+}

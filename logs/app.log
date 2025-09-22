@@ -1,0 +1,66 @@
+2025-09-19 00:44:24,874 INFO [neoroute] backup criado: backups\seguros.db.20250919T034424Z.bak
+2025-09-19 00:44:24,909 ERROR [neoroute] import falhou: (sqlite3.IntegrityError) NOT NULL constraint failed: seguros.nome
+[SQL: INSERT INTO seguros (nome, descricao) VALUES (?, ?) RETURNING id, created_at]
+[parameters: (None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-09-19 00:44:52,533 INFO [neoroute] admin criado: admin
+2025-09-19 08:04:16,117 INFO [neoroute] backup criado: backups\seguros.db.20250919T110416Z.bak
+2025-09-19 08:04:16,168 ERROR [neoroute] import falhou: (sqlite3.IntegrityError) NOT NULL constraint failed: seguros.nome
+[SQL: INSERT INTO seguros (nome, descricao) VALUES (?, ?) RETURNING id, created_at]
+[parameters: (None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-09-19 08:04:25,803 INFO [neoroute] backup criado: backups\seguros.db.20250919T110425Z.bak
+2025-09-19 08:04:25,826 ERROR [neoroute] import falhou: (sqlite3.IntegrityError) NOT NULL constraint failed: seguros.nome
+[SQL: INSERT INTO seguros (nome, descricao) VALUES (?, ?) RETURNING id, created_at]
+[parameters: (None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-09-19 08:10:07,356 INFO [neoroute] backup criado: backups\seguros.db.20250919T111007Z.bak
+2025-09-19 08:10:07,423 INFO [neoroute] import ok
+2025-09-19 20:57:22,034 INFO [neoroute] backup criado: backups\seguros.db.20250919T235722Z.bak
+2025-09-19 20:57:22,104 INFO [neoroute] import ok
+2025-09-19 20:57:39,276 INFO [neoroute] admin criado: admin
+2025-09-19 21:01:18,632 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=4859503
+2025-09-19 21:04:15,649 ERROR [neoroute] Erro ao registrar sinistro: 
+2025-09-19 21:06:10,534 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=093120
+2025-09-19 21:06:40,889 INFO [neoroute] AUDIT user=admin op=abrir_sinistro table=sinistros id=4
+2025-09-19 21:07:32,926 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=123456
+2025-09-19 21:07:52,335 INFO [neoroute] AUDIT user=admin op=abrir_sinistro table=sinistros id=5
+2025-09-19 21:08:25,165 INFO [neoroute] AUDIT user=admin op=fechar_sinistro table=sinistros id=5
+2025-09-19 21:08:53,238 INFO [neoroute] AUDIT user=admin op=atualizar_cliente table=clientes id=6
+2025-09-19 21:10:04,524 INFO [neoroute] AUDIT user=admin op=atualizar_cliente table=clientes id=6
+2025-09-19 21:12:39,123 ERROR [neoroute] Erro ao cancelar apólice: 
+2025-09-19 21:15:03,339 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=656565
+2025-09-19 21:15:34,293 INFO [neoroute] AUDIT user=admin op=abrir_sinistro table=sinistros id=6
+2025-09-19 21:15:55,148 INFO [neoroute] AUDIT user=admin op=cancelar_apolice table=apolices id=656565
+2025-09-19 21:19:19,170 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=909090
+2025-09-19 21:19:41,296 INFO [neoroute] AUDIT user=admin op=abrir_sinistro table=sinistros id=7
+2025-09-19 21:19:53,829 INFO [neoroute] AUDIT user=admin op=fechar_sinistro table=sinistros id=7
+2025-09-19 21:20:22,732 INFO [neoroute] AUDIT user=admin op=fechar_sinistro table=sinistros id=7
+2025-09-19 21:21:15,736 INFO [neoroute] AUDIT user=admin op=atualizar_cliente table=clientes id=8
+2025-09-19 21:21:35,897 INFO [neoroute] AUDIT user=admin op=cancelar_apolice table=apolices id=909090
+2025-09-19 21:29:20,322 INFO [neoroute] admin resetado: admin
+2025-09-19 21:29:27,562 INFO [neoroute] backup criado: backups\seguros.db.20250920T002927Z.bak
+2025-09-19 21:29:27,593 INFO [neoroute] import ok
+2025-09-19 21:38:36,352 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=12015
+2025-09-19 21:40:29,696 INFO [neoroute] AUDIT user=admin op=abrir_sinistro table=sinistros id=11
+2025-09-19 21:41:02,517 INFO [neoroute] AUDIT user=admin op=fechar_sinistro table=sinistros id=11
+2025-09-19 21:42:20,164 INFO [neoroute] AUDIT user=admin op=atualizar_cliente table=clientes id=9
+2025-09-19 21:43:02,620 INFO [neoroute] AUDIT user=admin op=cancelar_apolice table=apolices id=12015
+2025-09-19 22:20:19,761 ERROR [neoroute] erro criar admin: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, password_hash, email, role) VALUES (?, ?, ?, ?) RETURNING id, created_at]
+[parameters: ('admin', '$2b$12$nwk3g5HuXHb9W4Y2MXXYIeMyEo8rEaackZusBa45Zv0XTD5nZVqJ2', 'admin@neoseguros.com', 'admin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-09-19 22:22:22,489 ERROR [neoroute] erro criar admin: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, password_hash, email, role) VALUES (?, ?, ?, ?) RETURNING id, created_at]
+[parameters: ('admin', '$2b$12$yPM44Uf00corZOh5xmerJuaboe.9irKrAwYfvuHCr1PEGiQQVsf0O', 'admin@neoseguros.com', 'admin')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-09-19 22:32:45,508 INFO [neoroute] admin resetado: admin
+2025-09-19 22:32:56,083 INFO [neoroute] admin resetado: admin
+2025-09-19 22:33:10,002 INFO [neoroute] backup criado: backups\seguros.db.20250920T013310Z.bak
+2025-09-19 22:33:10,050 INFO [neoroute] Importação concluída com sucesso.
+2025-09-22 07:57:29,805 INFO [neoroute] admin resetado: admin
+2025-09-22 07:57:39,900 INFO [neoroute] backup criado: backups\seguros.db.20250922T105739Z.bak
+2025-09-22 07:57:39,918 INFO [neoroute] Importação concluída com sucesso.
+2025-09-22 08:36:48,855 INFO [neoroute] AUDIT user=admin op=emitir_apolice table=apolices id=696969
+2025-09-22 08:37:24,734 INFO [neoroute] AUDIT user=admin op=abrir_sinistro table=sinistros id=18
+2025-09-22 08:39:05,335 INFO [neoroute] AUDIT user=admin op=atualizar_cliente table=clientes id=10

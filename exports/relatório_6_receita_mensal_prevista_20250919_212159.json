@@ -1,0 +1,17 @@
+{
+  "titulo": "RELATÓRIO 6: Receita mensal prevista",
+  "data_geracao": "2025-09-19T21:21:59.890899",
+  "total_registros": 2,
+  "dados": [
+    {
+      "Mês/Ano": "2025-09",
+      "Total Apólices": 3,
+      "Receita Prevista (R$)": 108765.0
+    },
+    {
+      "Mês/Ano": "2025-06",
+      "Total Apólices": 3,
+      "Receita Prevista (R$)": 0.0
+    }
+  ]
+}

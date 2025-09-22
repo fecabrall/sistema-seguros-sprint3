@@ -1,0 +1,31 @@
+{
+  "titulo": "RELATÓRIO 8: Sinistros por período",
+  "data_geracao": "2025-09-19T21:43:42.366848",
+  "total_registros": 4,
+  "dados": [
+    {
+      "Período": "2025-09",
+      "Total Sinistros": 4,
+      "Valor Total (R$)": 10000.0,
+      "Valor Médio (R$)": 2500.0
+    },
+    {
+      "Período": "2025-07",
+      "Total Sinistros": 1,
+      "Valor Total (R$)": 0.0,
+      "Valor Médio (R$)": 0.0
+    },
+    {
+      "Período": "2025-06",
+      "Total Sinistros": 4,
+      "Valor Total (R$)": null,
+      "Valor Médio (R$)": null
+    },
+    {
+      "Período": "2025-05",
+      "Total Sinistros": 2,
+      "Valor Total (R$)": null,
+      "Valor Médio (R$)": null
+    }
+  ]
+}

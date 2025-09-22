@@ -1,0 +1,47 @@
+{
+  "titulo": "RELATÓRIO 2: Valor total segurado por cliente",
+  "data_geracao": "2025-09-22T08:42:27.195277",
+  "total_registros": 10,
+  "dados": [
+    {
+      "Cliente": "André",
+      "Valor Total": 745000.0
+    },
+    {
+      "Cliente": "Rosangela",
+      "Valor Total": 100000.0
+    },
+    {
+      "Cliente": "Tereza",
+      "Valor Total": 98765.0
+    },
+    {
+      "Cliente": "Nolfindo",
+      "Valor Total": 10000.0
+    },
+    {
+      "Cliente": "Alessandra ",
+      "Valor Total": 5230.0
+    },
+    {
+      "Cliente": "André Godoi",
+      "Valor Total": 2500.0
+    },
+    {
+      "Cliente": "Vinícius Adrian Siqueira",
+      "Valor Total": 0.0
+    },
+    {
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Valor Total": 0.0
+    },
+    {
+      "Cliente": "Leonardo ",
+      "Valor Total": 0.0
+    },
+    {
+      "Cliente": "Carlos Augusto de Matos",
+      "Valor Total": 0.0
+    }
+  ]
+}

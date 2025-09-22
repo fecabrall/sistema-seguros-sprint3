@@ -1,0 +1,84 @@
+{
+  "titulo": "RELATÓRIO 3: Sinistros por tipo de cobertura",
+  "data_geracao": "2025-09-19T21:43:42.351461",
+  "total_registros": 11,
+  "dados": [
+    {
+      "ID": 1,
+      "Cliente": "Vinícius Adrian Siqueira",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Carro foi roubado",
+      "Valor": null
+    },
+    {
+      "ID": 2,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "A casa foi invadido e todos os bens de valor foram roubados",
+      "Valor": null
+    },
+    {
+      "ID": 3,
+      "Cliente": "Carlos Augusto de Matos",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Carlos foi encontrado morto dentro de casa devido a um infarto",
+      "Valor": null
+    },
+    {
+      "ID": 4,
+      "Cliente": "Nolfindo",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Descrição teste",
+      "Valor": 0.0
+    },
+    {
+      "ID": 5,
+      "Cliente": "Tereza",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Teste de fechamento",
+      "Valor": 0.0
+    },
+    {
+      "ID": 6,
+      "Cliente": "Rosangela",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Testando mais",
+      "Valor": 0.0
+    },
+    {
+      "ID": 7,
+      "Cliente": "André",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Mais testes",
+      "Valor": 0.0
+    },
+    {
+      "ID": 8,
+      "Cliente": "Vinícius Adrian Siqueira",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Carro foi roubado",
+      "Valor": null
+    },
+    {
+      "ID": 9,
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "A casa foi invadido e todos os bens de valor foram roubados",
+      "Valor": null
+    },
+    {
+      "ID": 10,
+      "Cliente": "Carlos Augusto de Matos",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Carlos foi encontrado morto dentro de casa devido a um infarto",
+      "Valor": null
+    },
+    {
+      "ID": 11,
+      "Cliente": "Alessandra ",
+      "Tipo Seguro": "Automovel",
+      "Descrição": "Furto",
+      "Valor": 10000.0
+    }
+  ]
+}

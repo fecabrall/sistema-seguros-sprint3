@@ -1,0 +1,43 @@
+{
+  "titulo": "RELATÓRIO 7: Top clientes por valor segurado",
+  "data_geracao": "2025-09-19T21:43:42.364448",
+  "total_registros": 6,
+  "dados": [
+    {
+      "Cliente": "Leonardo ",
+      "Total Apólices": 1,
+      "Valor Segurado (R$)": 45000.0,
+      "Total Prêmios (R$)": 0.0
+    },
+    {
+      "Cliente": "Tereza",
+      "Total Apólices": 1,
+      "Valor Segurado (R$)": 12345.0,
+      "Total Prêmios (R$)": 98765.0
+    },
+    {
+      "Cliente": "Nolfindo",
+      "Total Apólices": 1,
+      "Valor Segurado (R$)": 5000.0,
+      "Total Prêmios (R$)": 10000.0
+    },
+    {
+      "Cliente": "Vinícius Adrian Siqueira",
+      "Total Apólices": 1,
+      "Valor Segurado (R$)": 0.0,
+      "Total Prêmios (R$)": 0.0
+    },
+    {
+      "Cliente": "Marta Ferreira de Oliveira",
+      "Total Apólices": 1,
+      "Valor Segurado (R$)": 0.0,
+      "Total Prêmios (R$)": 0.0
+    },
+    {
+      "Cliente": "Carlos Augusto de Matos",
+      "Total Apólices": 1,
+      "Valor Segurado (R$)": 0.0,
+      "Total Prêmios (R$)": 0.0
+    }
+  ]
+}
